@@ -1,0 +1,10 @@
+.BalanceSummary{
+  display: flex;
+  flex-direction: column;
+  border: 1px black solid;
+  border-radius: 20px;
+}
+
+.SummaryCard{
+  display: flex;
+}
