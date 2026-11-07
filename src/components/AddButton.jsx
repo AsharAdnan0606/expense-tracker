@@ -1,6 +1,7 @@
 function AddButton(props){
   return(
-    <input>
+    <input ref={props.inputRef}>
+      
     </input>
   )
 }

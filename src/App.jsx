@@ -5,17 +5,34 @@ import AddButton from "./components/AddButton"
 function App() {
 
   let inputRef=useRef(null)
-  const [newBalance,setBalance]=useState(0)
+  let categoryRef=useRef(null)
+  const [Balance,setBalance]=useState(0)
   
-  function handleAddBalance(){
+  function handleAddButton(){
+    let newBalance=0
+    console.log(`input shows: ${inputRef.current.value}`)
+    console.log(`category selected: ${categoryRef.current.value}`)
+    if (categoryRef.current.value === 'Add'){
+       newBalance=Number(Balance)+Number(inputRef.current.value)
+    }else{
+       newBalance=Number(Balance)-Number(inputRef.current.value)
+    }
+
     
-    console.log(inputRef)
+    setBalance(newBalance)
   }
+
+  
   return(
-    <>
+    <>     
+      <BalanceSummary balance={Balance}/>    
+      <AddButton inputRef={inputRef}/>
+      <select ref={categoryRef}>
+        <option value='Add'>Add</option>
+        <option value='Spend'>Spend</option>
+      </select>
+      <button onClick={handleAddButton}>+</button>
       
-      <BalanceSummary balance='100'/>    
-      <AddButton />
     </>
     
   )
